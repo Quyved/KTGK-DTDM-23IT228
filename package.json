@@ -1,0 +1,21 @@
+{
+  "name": "book-cloud-app",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Ứng dụng quản lý sách cho bài kiểm tra Điện toán đám mây",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js",
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=20.19.0"
+  },
+  "dependencies": {
+    "dotenv": "^16.6.1",
+    "express": "^4.22.3",
+    "express-handlebars": "^8.0.7",
+    "express-session": "^1.19.0",
+    "mongoose": "^9.11.0"
+  }
+}

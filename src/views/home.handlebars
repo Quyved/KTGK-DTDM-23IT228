@@ -1,0 +1,23 @@
+<section class="panel">
+  <h2>Thêm sách</h2>
+  <p class="hint">Mã sách phải bắt đầu bằng <strong>{{prefix}}</strong>.</p>
+  {{#if message}}<p class="notice">{{message}}</p>{{/if}}
+  {{#if error}}<p class="error" role="alert">{{error}}</p>{{/if}}
+  <form action="/books" method="post">
+    <input type="hidden" name="csrfToken" value="{{csrfToken}}">
+    <label>Mã sách <input name="code" required maxlength="40" placeholder="{{prefix}}-BOOK01"></label>
+    <label>Tên sách <input name="title" required maxlength="150"></label>
+    <label>Tác giả <input name="author" required maxlength="100"></label>
+    <label>Giá gốc (VND) <input name="price" type="number" min="0" step="1" required></label>
+    <button type="submit">Thêm sách</button>
+  </form>
+</section>
+<section class="panel">
+  <h2>Danh sách sách</h2>
+  {{#if books.length}}
+    <div class="table-wrap"><table>
+      <thead><tr><th>Mã</th><th>Tên sách</th><th>Tác giả</th><th>Giá gốc</th><th>Giá sau VAT</th></tr></thead>
+      <tbody>{{#each books}}<tr><td>{{code}}</td><td>{{title}}</td><td>{{author}}</td><td>{{price}}</td><td>{{priceAfterVAT}}</td></tr>{{/each}}</tbody>
+    </table></div>
+  {{else}}<p>Chưa có sách nào.</p>{{/if}}
+</section>
